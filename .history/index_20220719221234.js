@@ -21,7 +21,6 @@ tabBtn.addEventListener("click", function(){
 
 function deleteRow(i) {
     myLeads.splice(i, 1);
-    localStorage.setItem("myLeads", JSON.stringify(myLeads) )
     render(myLeads)
   }
 
