@@ -5,50 +5,92 @@ const ulEl = document.getElementById("ul-el")
 const deleteBtn = document.getElementById("delete-btn")
 const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 const tabBtn = document.getElementById("tab-btn")
+const li=document.createElement("li")
+const removeBtn=document.getElementsByClassName("small-btn")
 
 if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
     render(myLeads)
-}
+   }
 
 tabBtn.addEventListener("click", function(){    
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
         myLeads.push(tabs[0].url)
         localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-        render(myLeads)
+        
+        let a5=document.createElement('a')
+        let list5 =document.createElement("li")
+        let button5=document.createElement('button')
+        
+        button5.className="small-btn"
+        button5.innerHTML="Delete";
+        
+        a5.innerHTML=tabs[0].url
+        a5.title =tabs[0].url
+        a5.href=tabs[0].url
+
+        ulEl.appendChild(list5)
+        list5.appendChild(a5)
+        list5.appendChild(button5)
+        })
     })
-})
 
-function deleteRow(i) {
-    myLeads.splice(i, 1);
-    localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-    render(myLeads)
-  }
-
-
-function render(leads) {
-    let listItems = ""
+function render(leads) {       
     for (let i = 0; i < leads.length; i++) {
-        listItems += `
-            <li>
-                <a target='_blank' href='${leads[i]}'>
-                    ${leads[i]}
-                </a><button id='delete-icon' onclick="deleteRow(${i});">delete</button>
-            </li>
-        `
-    }
-    ulEl.innerHTML = listItems
-}
+        //li.appendChild(document.createTextNode(leads[i]));
+        let a=document.createElement('a')
+        let list =document.createElement("li")
+        let button=document.createElement('button')
+        button.className="small-btn"
 
-deleteBtn.addEventListener("dblclick", function() {
-    localStorage.clear()
-    myLeads = []
-    render(myLeads)
-})
+        button.innerHTML="Delete";
+        a.innerHTML=leads[i]
+        a.title =leads[i]
+        a.href=leads[i]
 
-inputBtn.addEventListener("click", function() {
-    myLeads.push(inputEl.value)
-    inputEl.value = ""
-    localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-    render(myLeads)
-})
+        ulEl.appendChild(list)
+        list.appendChild(a)
+        list.appendChild(button)
+        
+        
+        }    
+          }
+
+    deleteBtn.addEventListener("dblclick", function() {
+        myLeads = []
+        localStorage.clear()
+        document.getElementById('ul-el').innerHTML = '';
+        console.log(myLeads)
+        })
+
+/*         removeBtn.addEventListener("click",function(){
+            myLeads.splice(this.i, 1);
+            localStorage.setItem("myLeads", JSON.stringify(myLeads) )
+            render(myLeads)
+        })
+         */
+       
+
+    inputBtn.addEventListener("click", function() {
+        myLeads.push(inputEl.value)
+        localStorage.setItem("myLeads", JSON.stringify(myLeads))
+        
+        let a1=document.createElement('a')
+        let list1=document.createElement("li")
+        let button2=document.createElement('button')
+        button2.className="small-btn"
+
+        a1.innerHTML=inputEl.value
+        a1.title =inputEl.value
+        a1.href=inputEl.value
+
+        button2.innerHTML="Delete"
+
+        ulEl.appendChild(list1);
+        list1.appendChild(a1)
+        list1.appendChild(button2)
+
+ 
+        inputEl.value = ""
+        console.log(myLeads)      
+        })
