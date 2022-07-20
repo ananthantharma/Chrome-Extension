@@ -5,6 +5,8 @@ const ulEl = document.getElementById("ul-el")
 const deleteBtn = document.getElementById("delete-btn")
 const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 const tabBtn = document.getElementById("tab-btn")
+var ul = document.querySelector("ul");
+var li = document.getElementsByTagName("li");
 
 if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
@@ -19,12 +21,6 @@ tabBtn.addEventListener("click", function(){
     })
 })
 
-function deleteRow(i) {
-    myLeads.splice(i, 1);
-    render(myLeads)
-  }
-
-
 function render(leads) {
     let listItems = ""
     for (let i = 0; i < leads.length; i++) {
@@ -32,7 +28,7 @@ function render(leads) {
             <li>
                 <a target='_blank' href='${leads[i]}'>
                     ${leads[i]}
-                </a><button id='delete-icon' onclick="deleteRow(${i});">delete</button>
+                </a>
             </li>
         `
     }

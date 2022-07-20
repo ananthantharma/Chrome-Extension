@@ -19,12 +19,6 @@ tabBtn.addEventListener("click", function(){
     })
 })
 
-function deleteRow(i) {
-    myLeads.splice(i, 1);
-    render(myLeads)
-  }
-
-
 function render(leads) {
     let listItems = ""
     for (let i = 0; i < leads.length; i++) {
@@ -32,8 +26,8 @@ function render(leads) {
             <li>
                 <a target='_blank' href='${leads[i]}'>
                     ${leads[i]}
-                </a><button id='delete-icon' onclick="deleteRow(${i});">delete</button>
-            </li>
+                </a>
+            </li><button onclick="deleteRow(${i});">Delete</button>
         `
     }
     ulEl.innerHTML = listItems

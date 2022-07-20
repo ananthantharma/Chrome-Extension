@@ -19,12 +19,6 @@ tabBtn.addEventListener("click", function(){
     })
 })
 
-function deleteRow(i) {
-    myLeads.splice(i, 1);
-    render(myLeads)
-  }
-
-
 function render(leads) {
     let listItems = ""
     for (let i = 0; i < leads.length; i++) {

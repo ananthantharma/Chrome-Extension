@@ -5,6 +5,10 @@ const ulEl = document.getElementById("ul-el")
 const deleteBtn = document.getElementById("delete-btn")
 const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 const tabBtn = document.getElementById("tab-btn")
+const deleteIcon=document.getElementById("delete-icon")
+var ul = document.querySelector("ul");
+var li = document.getElementsByTagName("li");
+
 
 if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
@@ -19,25 +23,39 @@ tabBtn.addEventListener("click", function(){
     })
 })
 
-function deleteRow(i) {
-    myLeads.splice(i, 1);
-    render(myLeads)
-  }
 
 
-function render(leads) {
+function render() {
+    let listItems = ""
+    var li = document.createElement("li");
+    
+    for (let i = 0; i < leads.length; i++) {
+    li.appendChild(document.createTextNode(leads[i]));
+    addDelButton(li);
+    ul.appendChild(li);}
+    ulEl.innerHTML = listItems
+    input.value = "";}
+
+
+
+
+
+
+
+/* function render(leads) {
     let listItems = ""
     for (let i = 0; i < leads.length; i++) {
         listItems += `
             <li>
                 <a target='_blank' href='${leads[i]}'>
                     ${leads[i]}
-                </a><button id='delete-icon' onclick="deleteRow(${i});">delete</button>
+                </a>                
             </li>
         `
     }
     ulEl.innerHTML = listItems
-}
+} */
+//<button id='delete-icon' onclick='${removeElement(leads[i])}'>delete</button>
 
 deleteBtn.addEventListener("dblclick", function() {
     localStorage.clear()
@@ -50,4 +68,30 @@ inputBtn.addEventListener("click", function() {
     inputEl.value = ""
     localStorage.setItem("myLeads", JSON.stringify(myLeads) )
     render(myLeads)
+    
 })
+
+/* function removeElement(element){
+    myLeads.splice(element)
+    inputEl.value = ""
+    localStorage.setItem("myLeads", JSON.stringify(myLeads) )
+    render(myLeads)
+    
+} */
+
+
+
+function addli() {
+    var li = document.createElement("li");
+    var btn = document.createElement("button");
+    btn.className = "delete";
+    btn.innerHTML = "delete";
+    btn.addEventListener("click", function(e) {
+      e.target.parentNode.remove();
+    });
+    li.addEventListener("click", strikeout);
+    li.innerHTML = input.value + " ";
+    li.appendChild(btn);
+    ul.appendChild(li);
+    input.value = "";
+  }
