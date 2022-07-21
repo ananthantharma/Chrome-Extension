@@ -51,7 +51,6 @@ function render(leads) {
         button.className="small-btn"
         button.id="small-button"
         button.innerHTML="Delete";
-        //*********************************************** */
         button.onclick=function(){
             list.remove()
         }

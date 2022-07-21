@@ -7,7 +7,7 @@ const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 const tabBtn = document.getElementById("tab-btn")
 const li=document.createElement("li")
 
-
+const removeBtn=document.getElementById("small-button")
 
 if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
@@ -31,14 +31,9 @@ tabBtn.addEventListener("click", function(){
         a5.title =tabs[0].url
         a5.href=tabs[0].url
 
-
-        
         ulEl.appendChild(list5)
         list5.appendChild(a5)
         list5.appendChild(button5)
-        
-        
-
         })
     })
 
@@ -51,11 +46,6 @@ function render(leads) {
         button.className="small-btn"
         button.id="small-button"
         button.innerHTML="Delete";
-        //*********************************************** */
-        button.onclick=function(){
-            list.remove()
-        }
-
         a.innerHTML=leads[i]
         a.title =leads[i]
         a.href=leads[i]
@@ -63,17 +53,13 @@ function render(leads) {
         ulEl.appendChild(list)
         list.appendChild(a)
         list.appendChild(button)
-        
-       
-
-        }   
-        
+        document.getElementById("small-button").addEventListener("click", function(i) {
+            alert("Hello World!");
+          });
+        }    
           }
 
-          function removebutton(parent) {
-            
-                this.parentElement.remove();
-            }
+          
 
     deleteBtn.addEventListener("dblclick", function() {
         myLeads = []
@@ -92,7 +78,6 @@ function render(leads) {
         
         let a1=document.createElement('a')
         let list1=document.createElement("li")
-        
         let button2=document.createElement('button')
         button2.className="small-btn"
         button2.id="small-button"
@@ -101,29 +86,22 @@ function render(leads) {
         a1.href=inputEl.value
 
         button2.innerHTML="Delete"
+
         ulEl.appendChild(list1);
         list1.appendChild(a1)
         list1.appendChild(button2)
 
  
         inputEl.value = ""
-        
-
         console.log(myLeads)      
         })
 
-         
+        /* document.getElementById("small-button").addEventListener("click", function(i) {
+            alert("Hello World!");
+          }); */
 
         /* removeBtn && removeBtn.addEventListener("click", function(){
             myLeads.splice(this.i, 1);
             localStorage.setItem("myLeads", JSON.stringify(myLeads) )
             render(myLeads)
         }) */
-
-     /*    function removebutton(i){
-            myLeads.splice(i, 1);
-            localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-            render(myLeads)
-        } */
-
-        

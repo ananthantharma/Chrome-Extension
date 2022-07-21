@@ -51,11 +51,6 @@ function render(leads) {
         button.className="small-btn"
         button.id="small-button"
         button.innerHTML="Delete";
-        //*********************************************** */
-        button.onclick=function(){
-            list.remove()
-        }
-
         a.innerHTML=leads[i]
         a.title =leads[i]
         a.href=leads[i]
@@ -64,16 +59,20 @@ function render(leads) {
         list.appendChild(a)
         list.appendChild(button)
         
-       
+        for(var i=0; i<list.length; i++)
+        {
+            list[i].addEventListener("click", function(event)
+            {
+                event.target.classList.toggle("done");
+            });
+            //addDelButton(list[i]);
+        }
 
         }   
         
           }
 
-          function removebutton(parent) {
-            
-                this.parentElement.remove();
-            }
+          
 
     deleteBtn.addEventListener("dblclick", function() {
         myLeads = []

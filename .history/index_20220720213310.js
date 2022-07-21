@@ -51,11 +51,6 @@ function render(leads) {
         button.className="small-btn"
         button.id="small-button"
         button.innerHTML="Delete";
-        //*********************************************** */
-        button.onclick=function(){
-            list.remove()
-        }
-
         a.innerHTML=leads[i]
         a.title =leads[i]
         a.href=leads[i]
@@ -64,16 +59,11 @@ function render(leads) {
         list.appendChild(a)
         list.appendChild(button)
         
-       
-
         }   
         
           }
 
-          function removebutton(parent) {
-            
-                this.parentElement.remove();
-            }
+          
 
     deleteBtn.addEventListener("dblclick", function() {
         myLeads = []
@@ -107,7 +97,9 @@ function render(leads) {
 
  
         inputEl.value = ""
-        
+        document.getElementById("small-button").addEventListener("click", function(){
+            list1.remove()
+         }); 
 
         console.log(myLeads)      
         })
