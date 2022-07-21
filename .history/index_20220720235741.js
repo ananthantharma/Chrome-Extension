@@ -134,6 +134,10 @@ function render(leads) {
         console.log(myLeads)      
         })
 
+       /*  function ananthanMessage(){
+            alert("Ananthan thanks you for using his Chrome extension");
+        } */
+
         let button10=document.createElement('button')
         let footer=document.createElement('FOOTER')
         button10.innerHTML="Made by Ananthan"

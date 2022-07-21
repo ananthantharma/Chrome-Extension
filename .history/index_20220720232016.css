@@ -71,9 +71,9 @@ a {
 
     line-height: normal;
 }
-#ananthan {
+#ananthanMessage {
     background: white;
-    color: #040a00;
+    color: #5f9341;
     font-family: Arial, Helvetica, sans-serif;
     font-size:10px;
    
@@ -82,5 +82,3 @@ a {
     margin-left: 4px;
 
     line-height: normal;
-    
-}

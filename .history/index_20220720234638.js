@@ -134,12 +134,12 @@ function render(leads) {
         console.log(myLeads)      
         })
 
+       /*  function ananthanMessage(){
+            alert("Ananthan thanks you for using his Chrome extension");
+        } */
+
         let button10=document.createElement('button')
-        let footer=document.createElement('FOOTER')
+        let footer=document.createElement("footer")
         button10.innerHTML="Made by Ananthan"
         button10.id="ananthan"
-        button10.style="float: right"
-        button10.onclick=function(){
-            alert("Ananthan thanks you for using his Chrome extension");
-        }
-        document.body.appendChild(button10)
+        footer.appendChild(button10)

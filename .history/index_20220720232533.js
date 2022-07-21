@@ -134,12 +134,6 @@ function render(leads) {
         console.log(myLeads)      
         })
 
-        let button10=document.createElement('button')
-        let footer=document.createElement('FOOTER')
-        button10.innerHTML="Made by Ananthan"
-        button10.id="ananthan"
-        button10.style="float: right"
-        button10.onclick=function(){
+        document.getElementById("ananthanMessage").addEventListener("click",function(){
             alert("Ananthan thanks you for using his Chrome extension");
-        }
-        document.body.appendChild(button10)
+        })

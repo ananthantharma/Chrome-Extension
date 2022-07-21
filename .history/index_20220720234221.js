@@ -1,5 +1,6 @@
 let myLeads = []
 const inputEl = document.getElementById("input-el")
+const ananthan=document.getElementById("ananthan")
 const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
 const deleteBtn = document.getElementById("delete-btn")
@@ -134,12 +135,12 @@ function render(leads) {
         console.log(myLeads)      
         })
 
-        let button10=document.createElement('button')
-        let footer=document.createElement('FOOTER')
-        button10.innerHTML="Made by Ananthan"
-        button10.id="ananthan"
-        button10.style="float: right"
-        button10.onclick=function(){
+       /*  function ananthanMessage(){
             alert("Ananthan thanks you for using his Chrome extension");
-        }
-        document.body.appendChild(button10)
+        } */
+
+        let button10=document.createElement('button')
+        button10.className="small-btn"
+        button10.id="small-button"
+        button10.innerHTML="Made by Ananthan"
+        ananthan.appendChild(button10)

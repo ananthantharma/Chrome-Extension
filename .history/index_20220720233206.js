@@ -6,7 +6,7 @@ const deleteBtn = document.getElementById("delete-btn")
 const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 const tabBtn = document.getElementById("tab-btn")
 const li=document.createElement("li")
-
+const ananthan=document.getElementById("ananthan")
 
 
 if (leadsFromLocalStorage) {
@@ -134,12 +134,10 @@ function render(leads) {
         console.log(myLeads)      
         })
 
-        let button10=document.createElement('button')
-        let footer=document.createElement('FOOTER')
-        button10.innerHTML="Made by Ananthan"
-        button10.id="ananthan"
-        button10.style="float: right"
-        button10.onclick=function(){
+       /*  function ananthanMessage(){
             alert("Ananthan thanks you for using his Chrome extension");
-        }
-        document.body.appendChild(button10)
+        } */
+
+        document.getElementById("ananthan").onclick=function(){
+    alert("Ananthan thanks you for using his Chrome extension");
+}
