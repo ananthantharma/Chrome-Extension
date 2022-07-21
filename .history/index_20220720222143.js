@@ -28,11 +28,6 @@ tabBtn.addEventListener("click", function(){
         button5.innerHTML="Delete";
         button5.onclick=function(){
             list5.remove()
-            let index = myLeads.indexOf(tabs[0].url);
-            //if (index !== -1) {
-                myLeads.splice(index, 1);
-                localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-            //}
         }
         a5.innerHTML=tabs[0].url
         a5.title =tabs[0].url
@@ -61,11 +56,6 @@ function render(leads) {
         //*********************************************** */
         button.onclick=function(){
             list.remove()
-            let index = myLeads.indexOf(leads[i]);
-            //if (index !== -1) {
-                myLeads.splice(index, 1);
-                localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-            //}
         }
 
         a.innerHTML=leads[i]
@@ -115,14 +105,8 @@ function render(leads) {
         button2.innerHTML="Delete"
         button2.onclick=function(){
             list1.remove()
-            let index = myLeads.indexOf(inputEl.value);
-            //if (index !== -1) {
-                myLeads.splice(index, 1);
-                localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-            //}
+            myLeads.splice(inputEl.value)
         }
-
-
         ulEl.appendChild(list1);
         list1.appendChild(a1)
         list1.appendChild(button2)

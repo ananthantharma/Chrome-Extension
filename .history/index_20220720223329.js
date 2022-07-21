@@ -61,11 +61,7 @@ function render(leads) {
         //*********************************************** */
         button.onclick=function(){
             list.remove()
-            let index = myLeads.indexOf(leads[i]);
-            //if (index !== -1) {
-                myLeads.splice(index, 1);
-                localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-            //}
+            
         }
 
         a.innerHTML=leads[i]
